@@ -7,64 +7,97 @@ body{
     line-height: 1.6;
 }
 
-*, *:after, *:before{
-    box-sizing: border-box;
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    min-height: 100vh;
+}
+
+
+.header__wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.logo{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 150px;
+}
+
+.logo__title{
+    font-size: 19px;
+}
+
+.nav__link{
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+    padding: 5px;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: .5s;
+}
+.nav__link:hover{
+    transform: translateY(-5px);
 }
 
 .container{
-    width: 100%;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
-}
-
-h1, h2, h3, h4, h5, h6{
-    margin: 0;
-}
-
-.intro{
-    width: 100%;
-    height: 100vh;
-    background: url("../images/intro.jpg") center no-repeat;
-    background-size: cover;
-}
-
-.header{
-    width: 100%;
-    padding-top: 30px;
-    position: absolute;
-    top:0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
+    padding: 0 15px;
 
 }
 
-.header__inner{
+.logo__img{
+    max-width: 100%;
+}
+
+
+
+.main{
+    flex: 1 1 auto;
+    background-color: yellow;
+    height: 1500px;
+}
+
+.footer{
+
+    background-color: gainsboro;
+}
+
+.block{
+    height: 150px;
+    background-color: aquamarine;
+}
+
+.footer_wrapper{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.header__logo{
-    font-size: 30px;
-    font-weight: 700;
-    color: #F5DEB3;
+.footer__contacts{
+    min-width: 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.nav{
-    text-transform: uppercase;
-    font-size: 18px;
+.footer__left{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-
-.nav__link{
-    display: inline-block;
-    vertical-align: top;
-    margin: 0 15px;
-    color: black;
-    text-decoration: none;
-    transition: color .2s linear;
-}
-
-.nav__link:hover{
-    color: #FAEBD7;
+.footer__right{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
