@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="src/css/style.css">
     <script src="https://kit.fontawesome.com/0470f40f2a.js" crossorigin="anonymous"></script>
     <title>Shop</title>
 </head>
@@ -17,10 +17,10 @@
         <div class="container">
             <div class="header__wrapper">
                 <a href="#" class="header__link">
-                <div class="logo">
-                    <img src="assets/images/logo.svg" alt="" class="logo__img">
-                    <h1 class="logo__title">BICYCLE SHOP</h1>
-                </div>
+                    <div class="logo">
+                        <img src="src/images/logo.svg" alt="" class="logo__img">
+                        <h1 class="logo__title">BICYCLE SHOP</h1>
+                    </div>
                 </a>
                 <nav class="nav">
                     <a href="#" class="nav__link">Road</a>
@@ -31,25 +31,9 @@
             </div>
         </div>
     </header>
-    <main class="main">
-            <div class="main__wrapper">
-                <!--<div class="main__banner">
-                    <img src="assets/images/banner.svg" alt="#" class="main__banner__img">
-                </div>-->
-                <div class="main__list">
-                    <div class="product">
-                        <img src="assets/images/product1.png" alt="" class="product__img">
-                    </div>
-                    <div class="product">
-                        <img src="assets/images/product1.png" alt="" class="product__img">
-                    </div>
-                    <div class="product">
-                        <img src="assets/images/product1.png" alt="" class="product__img">
-                    </div>
-                    
-                </div>
-            </div>
-    </main>
+
+    <!-- There includes content_view -->
+    
     <footer class="footer">
         <div class="container">
             <div class="footer_wrapper">
@@ -59,10 +43,10 @@
                 <div class="footer__contacts">
                     <div class="footer__left">
                         <div class="contacts__item">
-                          <i class="fa fa-phone"></i>  +380631234567
+                            <i class="fa fa-phone"></i> +380631234567
                         </div>
                         <div class="email">
-                            <i class="fa fa-envelope-square"></i>  bicycles.bicycles@gmail.com
+                            <i class="fa fa-envelope-square"></i> bicycles.bicycles@gmail.com
                         </div>
                     </div>
                     <div class="footer__right">
