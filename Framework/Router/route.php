@@ -17,6 +17,7 @@ class Route{
         $controller_name = "controller_".$controller_name;
         $action = "action_".$action_name;
         $controller_name = '\App\Controller\\'.$controller_name;
+        /*$controller = new \App\Controller\controller_main();*/
         $controller = new $controller_name();
         if(method_exists($controller, $action)){
             $controller -> $action();
