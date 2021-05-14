@@ -79,6 +79,7 @@ a{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    align-items: center;
     max-width: 100%;
     min-height: 100%;
 }
@@ -170,3 +171,8 @@ a{
 .fa-whatsapp{
     color: #00D533;
 }
+
+.login_name{
+    color: #f80000;
+}
+

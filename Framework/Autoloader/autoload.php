@@ -10,11 +10,12 @@ Class Autoload{
         if(file_exists($path)){
             require $path;
         }else{
-            throw new ClassFileNotExists;
+            throw new ClassFileNotExists("Class $path not exists");
         }
      }
  }
 
- Class ClassFileNotExists extends \Exception{
-    protected $message = "File with this class not found";
- }
+class ClassFileNotExists extends \Exception
+{
+}
+
