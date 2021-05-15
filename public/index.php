@@ -4,7 +4,6 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 define("DOCUMENT_ROOT", __DIR__ . "/..");
 session_save_path(DOCUMENT_ROOT . "/App/Sessions");
-session_start();
 
 use Framework\Router\Route;
 

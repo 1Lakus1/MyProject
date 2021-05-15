@@ -6,23 +6,21 @@ use Framework\Core\Model;
 
 class ModelLogin extends Model
 {
-    public function getLogin()
+    public function getLogin(): string
     {
         if (isset($_POST['login'])) {
-            $login = $_POST['login'];
-            return $login;
+            return $_POST['login'];
         }
     }
 
-    public function getPassword()
+    public function getPassword(): string
     {
         if (isset($_POST['password'])) {
-            $password = $_POST['password'];
-            return $password;
+            return $_POST['password'];
         }
     }
 
-    public function logOutButton()
+    public function logOutButton(): bool
     {
         if (isset($_POST['logOut'])) {
             return true;
