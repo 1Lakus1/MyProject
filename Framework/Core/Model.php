@@ -1,5 +1,7 @@
 <?php
+
 namespace Framework\Core;
-Class model{
-    
+
+class Model
+{
 }

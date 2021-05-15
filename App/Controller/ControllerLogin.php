@@ -2,24 +2,23 @@
 
 namespace App\Controller;
 
-use Framework\Authentication\authentication;
-use App\Model\model_login;
+use Framework\Authentication\Authentication;
+use App\Model\ModelLogin;
 
-class controller_login extends \Framework\Core\contoller
+class ControllerLogin extends \Framework\Core\Controller
 {
-    protected $authentication;
-    protected $model_login;
+    protected object $authentication;
+    protected object $model_login;
 
     public function __construct()
     {
         parent::__construct();
-        $this->model_login = new model_login();
+        $this->model_login = new ModelLogin();
         $this->authentication = new authentication();
     }
 
-    public function action_index()
+    public function actionIndex()
     {
-        /*$this->renderer->render("template_view", NULL, 'login_view');*/
         if ($this->authentication->isAuth()) {
             $this->renderer->render("template_view", ["login" => $this->authentication->getLogin()], 'logged_view');
             if ($this->model_login->logOutButton()) {

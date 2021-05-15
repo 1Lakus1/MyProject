@@ -2,9 +2,9 @@
 
 namespace App\Controller;
 
-class controller_main extends \Framework\Core\contoller
+class ControllerMain extends \Framework\Core\Controller
 {
-    public function action_index()
+    public function actionIndex()
     {
         $this->renderer->render("template_view", null, 'main_view');
     }
