@@ -6,22 +6,30 @@ class Session
 {
     public function setName(string $name): void
     {
-        session_name($name);
+        if ($this->sessionExists()) {
+            session_name($name);
+        }
     }
 
     public function getName(): string
     {
-        return session_name();
+        if ($this->sessionExists()) {
+            return session_name();
+        }
     }
 
     public function setId($id): void
     {
-        session_id($id);
+        if ($this->sessionExists()) {
+            session_id($id);
+        }
     }
 
     public function getId(): string
     {
-        return session_id();
+        if ($this->sessionExists()) {
+            return session_id();
+        }
     }
 
     public function cookieExists(): bool
@@ -31,7 +39,11 @@ class Session
 
     public function sessionExists(): bool
     {
-        return isset($_SESSION);
+        if (session_status() === PHP_SESSION_ACTIVE) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public function start(): bool
@@ -39,13 +51,15 @@ class Session
         if (session_status() === PHP_SESSION_NONE) {
             return session_start();
         } else {
-            return 0;
+            return false;
         }
     }
 
     public function destroy(): void
     {
-        session_destroy();
+        if ($this->sessionExists()) {
+            session_destroy();
+        }
     }
 
     public function setSavePath(string $savePath): void
@@ -55,21 +69,31 @@ class Session
 
     public function set(string $key, $value): void
     {
-        $_SESSION[$key] = $value;
+        if (session_status() === PHP_SESSION_ACTIVE) {
+            $_SESSION[$key] = $value;
+        }
     }
 
     public function get(string $key)
     {
-        return $_SESSION[$key];
+        if (session_status() === PHP_SESSION_ACTIVE) {
+            return $_SESSION[$key];
+        }
     }
 
     public function contains(string $key): bool
     {
-        return isset($_SESSION[$key]);
+        if (session_status() === PHP_SESSION_ACTIVE) {
+            return isset($_SESSION[$key]);
+        } else {
+            return false;
+        }
     }
 
     public function delete(string $key): void
     {
-        unset($_SESSION[$key]);
+        if (session_status() === PHP_SESSION_ACTIVE) {
+            unset($_SESSION[$key]);
+        }
     }
 }

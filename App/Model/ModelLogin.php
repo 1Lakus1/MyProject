@@ -6,14 +6,14 @@ use Framework\Core\Model;
 
 class ModelLogin extends Model
 {
-    public function getLogin(): string
+    public function getLogin()
     {
         if (isset($_POST['login'])) {
             return $_POST['login'];
         }
     }
 
-    public function getPassword(): string
+    public function getPassword()
     {
         if (isset($_POST['password'])) {
             return $_POST['password'];

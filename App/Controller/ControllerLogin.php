@@ -26,9 +26,11 @@ class ControllerLogin extends \Framework\Core\Controller
             }
         } else {
             $this->renderer->render("template_view", null, 'login_view');
+            echo $this->authentication->isAuth();
             $login = $this->model_login->getLogin();
             $password = $this->model_login->getPassword();
-            $this->authentication->Auth($login, $password);
+            $this->authentication->auth($login, $password);
         }
     }
+
 }

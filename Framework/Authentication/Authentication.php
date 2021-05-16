@@ -2,37 +2,42 @@
 
 namespace Framework\Authentication;
 
+use Framework\Core\Session;
+
 class Authentication
 {
+    private object $session;
+
     public function __construct()
     {
-        if (!isset($_SESSION['auth'])) {
-            $_SESSION['auth'] = false;
-        }
+        $this->session = new Session();
     }
 
     public function isAuth(): bool
     {
-        return $_SESSION['auth'];
+        $this->session->start();
+        return $this->session->contains('auth');
     }
 
-    public function Auth($login, $pass): bool
+    public function auth($login, $pass): bool
     {
-        if ($login == "Vlados" && $pass = 'admin') {
-            $_SESSION['auth'] = true;
-            $_SESSION['login'] = $login;
-            header("Refresh:0");
+        if ($login === "Vlados" && $pass === "admin") {
+            $this->session->start();
+            $this->session->set('auth', true);
+            $this->session->set('login', $login);
+            return true;
+        } else {
+            return false;
         }
     }
 
     public function getLogin(): string
     {
-        return $_SESSION['login'];
+        return $this->session->get('login');
     }
 
     public function logOut(): void
     {
-        session_destroy();
-        header("Refresh:0");
+        $this->session->destroy();
     }
 }
