@@ -1,0 +1,21 @@
+{
+    "name": "vlad/my-project",
+    "authors": [
+        {
+            "name": "Vlad Butenko",
+            "email": "vladbutenkoan@gmail.com"
+        }
+    ],
+    "require": {
+        "squizlabs/php_codesniffer": "^3.6",
+        "friendsofphp/php-cs-fixer": "^3.0",
+        "monolog/monolog": "^2.2"
+    },
+    "description": "",
+    "autoload": {
+        "psr-4": {
+            "App\\": "App/",
+            "Framework\\": "Framework/"
+        }
+    }
+}
