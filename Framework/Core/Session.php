@@ -4,6 +4,11 @@ namespace Framework\Core;
 
 class Session
 {
+    public function __construct()
+    {
+        $this->setSavePath(DOCUMENT_ROOT . '/App/Sessions');
+    }
+
     public function setName(string $name): void
     {
         if ($this->sessionExists()) {

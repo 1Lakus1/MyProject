@@ -19,9 +19,9 @@ class Authentication
         return $this->session->contains('auth');
     }
 
-    public function auth($login, $pass): bool
+    public function auth(string $login, string $pass): bool
     {
-        if ($login === "Vlados" && $pass === "admin") {
+        if ($login === 'Vlados' && $pass === 'admin') {
             $this->session->start();
             $this->session->set('auth', true);
             $this->session->set('login', $login);
