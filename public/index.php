@@ -11,10 +11,5 @@ use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 
 require_once "../vendor/autoload.php";
-$log = new Logger('name');
-$log->pushHandler(new StreamHandler(DOCUMENT_ROOT . '/App/Logs/logs.log', Logger::WARNING));
 
-// add records to the log
-$log->warning('Foo');
-$log->error('Bar');
-/*Route::start();*/
+Route::start();
