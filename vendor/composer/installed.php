@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '7033e277e59c374fb21453aef355323857a902c9',
+    'reference' => '79def66e90caf1398b1f84d0a7d4a6aa7fa8cec8',
     'name' => 'vlad/my-project',
   ),
   'versions' => 
@@ -55,6 +55,15 @@
       array (
       ),
       'reference' => 'c15377bdfa8d1ecf186f1deadec39c89984e1167',
+    ),
+    'monolog/monolog' => 
+    array (
+      'pretty_version' => '2.2.0',
+      'version' => '2.2.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '1cb1cde8e8dd0f70cc0fe51354a59acad9302084',
     ),
     'php-cs-fixer/diff' => 
     array (
@@ -113,6 +122,7 @@
       'provided' => 
       array (
         0 => '1.0',
+        1 => '1.0.0',
       ),
     ),
     'squizlabs/php_codesniffer' => 
@@ -300,7 +310,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '7033e277e59c374fb21453aef355323857a902c9',
+      'reference' => '79def66e90caf1398b1f84d0a7d4a6aa7fa8cec8',
     ),
   ),
 );

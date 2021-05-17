@@ -47,6 +47,10 @@ class ComposerStaticInite3db8b3b56a9569b7d6234edab0279bc
             'Psr\\Cache\\' => 10,
             'PhpCsFixer\\' => 11,
         ),
+        'M' => 
+        array (
+            'Monolog\\' => 8,
+        ),
         'F' => 
         array (
             'Framework\\' => 10,
@@ -155,6 +159,10 @@ class ComposerStaticInite3db8b3b56a9569b7d6234edab0279bc
         'PhpCsFixer\\' => 
         array (
             0 => __DIR__ . '/..' . '/friendsofphp/php-cs-fixer/src',
+        ),
+        'Monolog\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
         'Framework\\' => 
         array (
