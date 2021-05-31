@@ -2,6 +2,8 @@
 
 namespace Framework\Core;
 
+use http\Exception;
+
 class Renderer
 {
     public function render(string $template, array $data = null, string $layout)

@@ -1,0 +1,87 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  max-height: 100vh;
+  background-color: #eeeeee;
+}
+
+.admission {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  border-radius: 15px;
+  -webkit-box-shadow: 4px 4px 6px 0px rgba(0, 0, 0, 0.36);
+          box-shadow: 4px 4px 6px 0px rgba(0, 0, 0, 0.36);
+  max-width: 300px;
+  width: 100%;
+}
+.admission__header {
+  border-radius: 15px 15px 0 0;
+  background-color: #282830;
+  color: #f1f5ef;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 20px 30px;
+  font-weight: bold;
+}
+.admission__link {
+  text-decoration: none;
+  color: gray;
+}
+.admission__link:hover {
+  text-decoration: underline;
+}
+.admission__wrapper {
+  padding: 0 10px;
+  margin-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.admission__content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 0 0 15px 15px;
+}
+
+.logForm__input {
+  margin-bottom: 0px;
+  max-width: 100%;
+  width: 100%;
+  padding: 8px 5px;
+  border: 2px solid #f6f6f6;
+}
+
+button[type=submit] {
+  cursor: pointer;
+  padding: 10px 20px;
+  background: #99b6df;
+  background: -webkit-gradient(linear, left top, left bottom, from(#99b6df), to(#638ec8));
+  background: linear-gradient(#99b6df, #638ec8);
+  border: solid 1px #6d94ce;
+  -webkit-box-shadow: inset 0 0 0 1px #bbcfeb;
+          box-shadow: inset 0 0 0 1px #bbcfeb;
+  color: #fff;
+}
+button[type=submit]:hover {
+  background: #99b6df;
+}
+button[type=submit]:active {
+  background: #638ec8;
+  background: -webkit-gradient(linear, left top, left bottom, from(#638ec8), to(#99b6df));
+  background: linear-gradient(#638ec8, #99b6df);
+  border: solid 1px #6d94ce;
+  -webkit-box-shadow: inset 0 10px 15px 0 #4176c4;
+          box-shadow: inset 0 10px 15px 0 #4176c4;
+}
