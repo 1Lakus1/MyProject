@@ -7,9 +7,6 @@ const DOCUMENT_ROOT = __DIR__ . "/..";
 
 use Framework\Router\Route;
 
-use Monolog\Logger;
-use Monolog\Handler\StreamHandler;
-
 require_once "../vendor/autoload.php";
 
 Route::start();
