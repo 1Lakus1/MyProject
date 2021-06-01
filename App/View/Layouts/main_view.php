@@ -4,38 +4,16 @@
             <div class="title__text"> HOME PAGE </div>
         </div>
         <div id="menu_list" class="main__list">
-            <a class="product" href = "#">
-                <img src="src/images/product1.png" alt="" class="product__img">
+            <?php foreach($data as $product){ ?>
+            <a class="product" href = "/product?id=<?php echo $product->getId(); ?>">
+                <img src="src/images/<?php echo $product->getImgName(); ?>" alt="" class="product__img">
                 <div class="product__info">
-                    <div class="product__name"> Bike First</div>
-                    <div class="product__price"> 300$</div>
+                    <div class="product__name"> <?php echo $product->getName(); ?></div>
+                    <div class="product__price"> $<?php echo $product->getPrice(); ?></div>
 
                 </div>
             </a>
-            <a class="product" href = "#" >
-                <img src="src/images/product2.png" alt="" class="product__img">
-                <div class="product__info">
-                    <div class="product__name"> Bike Second</div>
-                    <div class="product__price"> 320$</div>
-
-                </div>
-            </a>
-            <a class="product" href = "#">
-                <img src="src/images/product3.png" alt="" class="product__img">
-                <div class="product__info">
-                    <div class="product__name"> Bike Third</div>
-                    <div class="product__price"> 210$</div>
-
-                </div>
-            </a>
-            <a  class="product" href = "#">
-                <img src="src/images/product4.png" alt="" class="product__img">
-                <div class="product__info">
-                    <div class="product__name"> Bike Fourth</div>
-                    <div class="product__price"> 280$</div>
-
-                </div>
-            </a>
+            <?php } ?>
         </div>
     </div>
 </main>

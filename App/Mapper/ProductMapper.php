@@ -4,11 +4,13 @@ namespace App\Mapper;
 
 use Framework\Database\Database;
 use App\Model\ProductModel;
+use PHP_CodeSniffer\Tests\Core\File\FindEndOfStatementTest;
 
 class ProductMapper
 {
     private object $db;
     private object $product;
+    private array $product_list;
 
     public function __construct()
     {
@@ -24,9 +26,9 @@ class ProductMapper
         $statement->execute();
         $row = $statement->fetch();
         $this->product = new ProductModel();
-        $this -> product -> setName($row['name']);
-        $this -> product -> setPrice($row['price']);
-        $this -> product -> setImgName($row['img']);
+        $this->product->setName($row['name']);
+        $this->product->setPrice($row['price']);
+        $this->product->setImgName($row['img']);
         return $this->product;
     }
 
@@ -38,5 +40,22 @@ class ProductMapper
         $statement->bindParam('price', $product->price);
         $statement->bindParam('img', $product->imgName);
         $statement->execute();
+    }
+
+    public function getProducts(int $maxCount): array
+    {
+        $sql = 'SELECT id, name, price, img FROM products ORDER BY id DESC LIMIT :maxCount';
+        $statement = $this->db->prepare($sql);
+        $statement->bindParam('maxCount', $maxCount);
+        $statement->execute();
+        while ($row = $statement->fetch()) {
+            $this->product = new ProductModel();
+            $this->product->setName($row['name']);
+            $this->product->setPrice($row['price']);
+            $this->product->setImgName($row['img']);
+            $this->product->setId($row['id']);
+            $this->product_list[] = $this->product;
+        }
+        return $this->product_list;
     }
 }
