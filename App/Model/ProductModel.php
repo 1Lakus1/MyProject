@@ -4,6 +4,7 @@ namespace App\Model;
 
 class ProductModel
 {
+    private int $id;
     private string $name;
     private string $imgName;
     private float $price;
@@ -23,6 +24,12 @@ class ProductModel
         return $this -> price;
     }
 
+    public function getId(): int
+    {
+        return $this -> id;
+    }
+
+
     public function setName(string $name): void
     {
         $this -> name = $name;
@@ -36,5 +43,10 @@ class ProductModel
     public function setPrice(string $price): void
     {
         $this -> price = $price;
+    }
+
+    public function setId(int $id): void
+    {
+        $this -> id = $id;
     }
 }
