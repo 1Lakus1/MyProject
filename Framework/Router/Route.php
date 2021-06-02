@@ -23,9 +23,14 @@ class Route
         $controller_name = "Controller" . $controller_name;
         $action = "action" . $action_name;
         $controller_name = '\App\Controller\\' . $controller_name;
+        if(!class_exists($controller_name)){
+             throw new \Exception("Controller doesn't exists");
+        }
         $controller = new $controller_name();
         if (method_exists($controller, $action)) {
             $controller -> $action();
+        }else{
+            throw new \Exception("Method of controller doesn't exists");
         }
     }
 }
