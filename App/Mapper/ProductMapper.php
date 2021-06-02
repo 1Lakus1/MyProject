@@ -42,12 +42,18 @@ class ProductMapper
         $statement->execute();
     }
 
-    public function getProducts(int $maxCount): array
+    public function getProducts(int $maxCount=NULL): array
     {
-        $sql = 'SELECT id, name, price, img FROM products ORDER BY id DESC LIMIT :maxCount';
-        $statement = $this->db->prepare($sql);
-        $statement->bindParam('maxCount', $maxCount);
-        $statement->execute();
+        if(isset($maxCount)) {
+            $sql = 'SELECT id, name, price, img FROM products ORDER BY id DESC LIMIT :maxCount';
+            $statement = $this->db->prepare($sql);
+            $statement->bindParam('maxCount', $maxCount);
+            $statement->execute();
+        } else {
+            $sql = 'SELECT id, name, price, img FROM products ORDER BY price DESC';
+            $statement = $this->db->prepare($sql);
+            $statement->execute();
+        }
         while ($row = $statement->fetch()) {
             $this->product = new ProductModel();
             $this->product->setName($row['name']);
@@ -58,4 +64,6 @@ class ProductMapper
         }
         return $this->product_list;
     }
+
+
 }

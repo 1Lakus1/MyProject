@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="src/css/style.css">
+    <link rel="stylesheet" href="src/css/<?php echo $layout; ?>.css">
     <script src="https://kit.fontawesome.com/0470f40f2a.js" crossorigin="anonymous"></script>
     <title>Shop</title>
 </head>
@@ -16,17 +17,17 @@
     <header class="header">
         <div class="container">
             <div class="header__wrapper">
-                <a href="#" class="header__link">
+                <a href="/" class="header__link">
                     <div class="logo">
                         <img src="src/images/logo.svg" alt="" class="logo__img">
                         <h1 class="logo__title">BICYCLE SHOP</h1>
                     </div>
                 </a>
                 <nav class="nav">
-                    <a href="#" class="nav__link">Road</a>
-                    <a href="#" class="nav__link">Mountain</a>
+                    <a href="/Catalog" class="nav__link">Catalog</a>
+                    <!--<a href="#" class="nav__link">Mountain</a>
                     <a href="#" class="nav__link">Hybrid</a>
-                    <a href="#" class="nav__link">Electrics</a>
+                    <a href="#" class="nav__link">Electrics</a>-->
                 </nav>
                 <a class = "login" href = "#">LogIn</a>
             </div>
