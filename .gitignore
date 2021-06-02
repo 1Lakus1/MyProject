@@ -1,3 +1,6 @@
 .idea
 App/Sessions/
 /vendor/
+.php-cs-fixer.cache
+.php_cs.dist
+
