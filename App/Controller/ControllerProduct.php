@@ -8,8 +8,13 @@ class ControllerProduct extends \Framework\Core\Controller
     public function actionIndex()
     {
             $mapper = new ProductMapper();
-            $product = $mapper->getProductById(6);
+            if(isset($_GET['id'])) {
+                $id = (int) ($_GET['id']);
+                $product = $mapper->getProductById($_GET['id']);
+                $this->renderer->render("template_view", $product, 'product_view');
+            }else{
+                throw new \Exception("This product doesn't exist!");
+            }
 
-            $this->renderer->render("template_view", NULL, 'product_view');
     }
 }

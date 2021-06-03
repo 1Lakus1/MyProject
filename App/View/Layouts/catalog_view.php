@@ -12,7 +12,7 @@
             <section class = "products">
                 <?php foreach($data as $product){ ?>
                 <article class = "product">
-                    <a href = "#">
+                    <a href = "product?id=<?php echo $product->getId(); ?>">
                         <div class = "product__wrapper">
                             <div class ="product__imgWrapper">
                                 <img class = "product__img" src = "src/images/<?php echo $product->getImgName(); ?>">

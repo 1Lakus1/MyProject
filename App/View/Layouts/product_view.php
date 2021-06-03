@@ -7,11 +7,11 @@
             <section class = "product">
                 <div class = "product__wrapper">
                     <div class = "product__image">
-                        <img src = "../images/product1.png">
+                        <img src = "src/images/<?php echo $data->getImgName(); ?>">
                     </div>
                     <section class = "product__information">
-                        <h2 class ="product__name">Велик ямаха 100 на 10л</h2>
-                        <p class ="">Велик ямаха 100 на 10лВелик ямаха 100 на 10л Велик ямаха  10лВелик ямаха 100 на 10л Велик ямаха   10лВелик ямаха 100 на 10л Велик ямаха   10лВелик ямаха 100 на 10л Велик ямаха   10лВелик ямаха 100 на 10л Велик ямаха   10лВелик ямаха 100 на 10л Велик ямаха  10лВелик ямаха 100 на 10л Велик ямаха 100 на 10лВелик ямаха 100 на 10лВелик ямаха 100 на 10лВелик ямаха 100 на 10лВелик ямаха 100 на 10л</p>
+                        <h2 class ="product__name"><?php echo $data->getName(); ?></h2>
+                        <p class =""><?php echo $data->getDescription(); ?></p>
                         <input class = "button" type = "button" value="Add to cart">
                     </section>
                 </div>

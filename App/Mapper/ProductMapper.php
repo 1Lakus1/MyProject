@@ -20,16 +20,22 @@ class ProductMapper
 
     public function getProductById($id)
     {
-        $sql = 'SELECT id, name, price, img FROM products WHERE id=:id';
+        $sql = 'SELECT products.id, name, price, img, description FROM products JOIN descriptions ON products.id = descriptions.product_id WHERE products.id = :id;';
         $statement = $this->db->prepare($sql);
         $statement->bindParam('id', $id);
         $statement->execute();
         $row = $statement->fetch();
-        $this->product = new ProductModel();
-        $this->product->setName($row['name']);
-        $this->product->setPrice($row['price']);
-        $this->product->setImgName($row['img']);
-        return $this->product;
+        if($row) {
+            $this->product = new ProductModel();
+            $this->product->setName($row['name']);
+            $this->product->setPrice($row['price']);
+            $this->product->setImgName($row['img']);
+            $this->product->setId($row['id']);
+            $this->product->setDescription($row['description']);
+            return $this->product;
+        }else{
+            throw new \Exception("This product doesn't exist!");
+        }
     }
 
     public function setProduct(object $product): void
