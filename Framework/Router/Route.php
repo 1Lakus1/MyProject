@@ -11,7 +11,9 @@ class Route
     {
         $controller_name = 'Main';
         $action_name = 'Index';
-        $routes = explode('/', $_SERVER['REQUEST_URI']);
+        $uri = $_SERVER['REQUEST_URI'];
+        $uri = explode('?', $uri)[0];
+        $routes = explode('/', $uri);
         if (!empty($routes[1])) {
             $controller_name = strtolower($routes[1]);
             $controller_name = ucfirst($controller_name);

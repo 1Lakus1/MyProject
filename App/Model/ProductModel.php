@@ -8,6 +8,7 @@ class ProductModel
     private string $name;
     private string $imgName;
     private float $price;
+    private string $description;
 
     public function getName(): string
     {
@@ -29,6 +30,10 @@ class ProductModel
         return $this -> id;
     }
 
+    public function getDescription(): string
+    {
+        return $this -> description;
+    }
 
     public function setName(string $name): void
     {
@@ -48,5 +53,9 @@ class ProductModel
     public function setId(int $id): void
     {
         $this -> id = $id;
+    }
+
+    public function setDescription(string $description): void{
+        $this -> description = $description;
     }
 }
