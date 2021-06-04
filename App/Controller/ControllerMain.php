@@ -9,6 +9,6 @@ class ControllerMain extends \Framework\Core\Controller
     {
             $mapper = new ProductMapper();
             $product_list = $mapper->getProducts(5);
-            $this->renderer->render("template_view", $product_list, 'main_view');
+            $this->renderer->render("template_view", NULL, 'main_view');
     }
 }
