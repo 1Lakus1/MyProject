@@ -10,9 +10,16 @@ const getProducts = async () => {
     return products;
 }
 
+function include(url) {
+    var script = document.createElement('script');
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+}
+
 getProducts().then((products) => {
+    let product_html;
     products.forEach(product => {
-        document.getElementById('menu_list').innerHTML += `<a class="product" href = "#">
+        product_html += `<a class="product" href = "#">
                 <img src="src/images/${product['imgName']}" alt="" class="product__img">
                 <div class="product__info">
                     <div class="product__name"> ${product['name']}</div>
@@ -21,6 +28,8 @@ getProducts().then((products) => {
                 </div>
             </a>`;
     });
+    document.getElementById('menu_list').innerHTML = product_html;
+    include("js/slider.js")
 });
 
 
