@@ -19,7 +19,7 @@ function include(url) {
 getProducts().then((products) => {
     let product_html;
     products.forEach(product => {
-        product_html += `<a class="product" href = "#">
+        product_html += `<a class="product" href = "product?id=${product['id']}">
                 <img src="src/images/${product['imgName']}" alt="" class="product__img">
                 <div class="product__info">
                     <div class="product__name"> ${product['name']}</div>
