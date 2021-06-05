@@ -1,4 +1,4 @@
-const getProducts = async () =>{
+const getProducts = async () => {
     response = await fetch(`http://myproject.loc/MainApi`, {
         method: "GET",
         headers: {
@@ -10,13 +10,13 @@ const getProducts = async () =>{
     return products;
 }
 
-getProducts().then((products)=>{
+getProducts().then((products) => {
     products.forEach(product => {
         document.getElementById('menu_list').innerHTML += `<a class="product" href = "#">
                 <img src="src/images/${product['imgName']}" alt="" class="product__img">
                 <div class="product__info">
-                    <div class="product__name"> Bike First</div>
-                    <div class="product__price"> 300$</div>
+                    <div class="product__name"> ${product['name']}</div>
+                    <div class="product__price">$ ${product['price']}</div>
 
                 </div>
             </a>`;
