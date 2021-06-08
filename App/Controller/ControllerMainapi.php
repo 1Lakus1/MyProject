@@ -7,8 +7,8 @@ class ControllerMainapi extends \Framework\Core\Controller
 {
     public function actionIndex()
     {
-            $mapper = new ProductMapper();
-            $productModel_list = $mapper->getProducts(5);
+
+            $productModel_list = ProductMapper::getProducts(5);
             $products = [];
             foreach($productModel_list as $productModel){
                 $product = [
