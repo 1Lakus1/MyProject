@@ -2,65 +2,40 @@
 
 namespace App\Controller;
 
+use App\Mapper\UserMapper;
 use Framework\Authentication\Authentication;
 use App\Model\ModelLogin;
+use http\Client\Curl\User;
 
 class ControllerLogin extends \Framework\Core\Controller
 {
-    protected object $authentication;
-    protected object $model_login;
+    private object $auth;
 
     public function __construct()
     {
         parent::__construct();
-        $this->model_login = new ModelLogin();
-        $this->authentication = new authentication();
+        $this->auth = new Authentication();
     }
-
-    /*public function actionIndex()
-    {
-        if ($this->authentication->isAuth()) {
-            $this->renderer->render("template_view", ["login" => $this->authentication->getLogin()], 'logged_view');
-            if ($this->model_login->logOutButton()) {
-                $this->authentication->logOut();
-                header('Refresh:0');
-            }
-        } else {
-            $this->renderer->render("template_view", null, 'login_view');
-            echo $this->authentication->isAuth();
-            $login = $this->model_login->getLogin();
-            $password = $this->model_login->getPassword();
-            if ($this->authentication->auth($login, $password)) {
-                header('Refresh:0');
-            };
-        }
-    }*/
 
     public function actionIndex()
     {
-        if ($this->authentication->isAuth()) {
-            $this->actionLogged();
-        } else {
-            $this->renderer->render("template_view", null, 'login_view');
-            echo $this->authentication->isAuth();
-            $login = $this->model_login->getLogin();
-            $password = $this->model_login->getPassword();
-            if ($this->authentication->auth($login, $password)) {
-                header('Refresh:0');
-            };
+        if (!$this->auth->isAuth()) {
+            $this->renderer->render('template_view', NULL, 'login_view');
+            if (isset($_POST['login']) && isset($_POST['password'])) {
+                $login = $_POST['login'];
+                $password = $_POST['password'];
+                if ($this->auth->auth($login, $password)) {
+                    header("Location: /user");
+                };
+            }
+        }else{
+            header("Location: /user");
         }
     }
 
-    public function actionLogged(): void
+    public function actionLogout()
     {
-        if ($this->authentication->isAuth()) {
-            $this->renderer->render("template_view", ["login" => $this->authentication->getLogin()], 'logged_view');
-            if ($this->model_login->logOutButton()) {
-                $this->authentication->logOut();
-                header('Refresh:0');
-            }
-        } else {
-            $this->actionIndex();
-        }
+        $this->auth->logOut();
+        header("Location: /login");
     }
 }
