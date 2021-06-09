@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="src/css/style.css">
-    <link rel="stylesheet" href="src/css/<?php echo $layout; ?>.css">
+    <link rel="stylesheet" href="/src/css/style.css">
+    <link rel="stylesheet" href="/src/css/<?php echo $layout; ?>.css">
     <script src="https://kit.fontawesome.com/0470f40f2a.js" crossorigin="anonymous"></script>
     <script src="js/<?php echo $layout; ?>.js" crossorigin="anonymous"></script>
 
@@ -31,7 +31,7 @@
                     <a href="#" class="nav__link">Hybrid</a>
                     <a href="#" class="nav__link">Electrics</a>-->
                 </nav>
-                <a class = "login" href = "#">LogIn</a>
+                <a class = "login" href = "/login">LogIn</a>
             </div>
         </div>
     </header>
