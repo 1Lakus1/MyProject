@@ -62,9 +62,8 @@ class Session
 
     public function destroy(): void
     {
-        if ($this->sessionExists()) {
-            session_destroy();
-        }
+        session_start();
+        session_destroy();
     }
 
     public function setSavePath(string $savePath): void

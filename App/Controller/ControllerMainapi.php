@@ -7,8 +7,12 @@ class ControllerMainapi extends \Framework\Core\Controller
 {
     public function actionIndex()
     {
-
-            $productModel_list = ProductMapper::getProducts(5);
+            if(isset($_GET['count'])){
+                $count = $_GET['count'];
+            }else {
+                $count = NULL;
+            }
+            $productModel_list = ProductMapper::getProducts($count);
             $products = [];
             foreach($productModel_list as $productModel){
                 $product = [

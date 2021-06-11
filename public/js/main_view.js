@@ -1,5 +1,5 @@
 const getProducts = async () => {
-    response = await fetch(`http://myproject.loc/MainApi`, {
+    response = await fetch(`http://myproject.loc/MainApi?count=5`, {
         method: "GET",
         headers: {
             'Content-Type': 'application/json'
