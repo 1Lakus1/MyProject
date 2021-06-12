@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/src/css/<?php echo $layout; ?>.css">
     <script src="https://kit.fontawesome.com/0470f40f2a.js" crossorigin="anonymous"></script>
     <script src="js/<?php echo $layout; ?>.js" crossorigin="anonymous"></script>
-
+    <script src="js/app.js" defer></script>
     <title>Shop</title>
 </head>
 <body>
@@ -31,11 +31,13 @@
                     <a href="#" class="nav__link">Hybrid</a>
                     <a href="#" class="nav__link">Electrics</a>-->
                 </nav>
-                <a class = "login" href = "/login">LogIn</a>
+                <a class="login" href="/login">LogIn</a>
             </div>
         </div>
     </header>
-    <?php require $layout_path;?>
+    <div id="app">
+        <?php require $layout_path; ?>
+    </div>
     <footer class="footer">
         <div class="container">
             <div class="footer_wrapper">
