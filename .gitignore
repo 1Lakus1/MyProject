@@ -1,7 +1,8 @@
-.idea
+.idea/
 App/Sessions/
 /vendor/
 .php-cs-fixer.cache
 .php_cs.dist
 db_environment.php
+/node_modules/
 
