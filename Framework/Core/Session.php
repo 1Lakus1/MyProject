@@ -6,7 +6,7 @@ class Session
 {
     public function __construct()
     {
-        $this->setSavePath(DOCUMENT_ROOT . '/App/Sessions');
+        $this->setSavePath(DOCUMENT_ROOT . '/var/sessions');
     }
 
     public function setName(string $name): void

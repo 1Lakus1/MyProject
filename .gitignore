@@ -5,4 +5,4 @@ App/Sessions/
 .php_cs.dist
 db_environment.php
 /node_modules/
-
+/var/

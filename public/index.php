@@ -10,7 +10,7 @@ use Framework\Router\Route;
 require_once "../vendor/autoload.php";
 
 try{
-Route::start();
+    Route::start();
 }catch (Exception $e){
     echo $e->getMessage();
 }
