@@ -11,6 +11,10 @@
         "friendsofphp/php-cs-fixer": "^3.0",
         "monolog/monolog": "^2.2"
     },
+    "scripts": {
+        "php-cs-fixer": "php-cs-fixer --rules=@PSR12",
+        "phpcs": "phpcs --standard=PSR12"
+    },
     "description": "",
     "autoload": {
         "psr-4": {

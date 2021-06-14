@@ -20,7 +20,7 @@ class ControllerLogin extends \Framework\Core\Controller
     public function actionIndex()
     {
         if (!$this->auth->isAuth()) {
-            $this->renderer->render('template_view', NULL, 'login_view');
+            $this->renderer->render('template_view', null, 'login_view');
             if (isset($_POST['login']) && isset($_POST['password'])) {
                 $login = $_POST['login'];
                 $password = $_POST['password'];
@@ -28,7 +28,7 @@ class ControllerLogin extends \Framework\Core\Controller
                     header("Location: /user");
                 };
             }
-        }else{
+        } else {
             header("Location: /user");
         }
     }
