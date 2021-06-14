@@ -1,3 +1,4 @@
+<div id="app">
 <main class="main">
     <div class="main__wrapper">
         <div class="main__title title">
@@ -8,3 +9,4 @@
         </div>
     </div>
 </main>
+</div>

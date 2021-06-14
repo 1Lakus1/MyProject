@@ -21,7 +21,7 @@ class ControllerUser extends \Framework\Core\Controller
     {
         if ($this->auth->isAuth()) {
             $this->model = UserMapper::getUser($this->auth->getLogin());
-            $this->renderer->render('template_view', $this->model, 'user_view');
+            $this->renderer->render('layout_view', $this->model, 'user_view');
         } else {
             header("Location: /login");
         }

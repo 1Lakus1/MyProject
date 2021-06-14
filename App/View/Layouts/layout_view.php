@@ -8,9 +8,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/src/css/style.css">
-    <link rel="stylesheet" href="/src/css/<?php echo $layout; ?>.css">
+    <link rel="stylesheet" href="/src/css/<?php echo $template; ?>.css">
     <script src="https://kit.fontawesome.com/0470f40f2a.js" crossorigin="anonymous"></script>
-    <script src="js/<?php echo $layout; ?>.js" crossorigin="anonymous"></script>
+    <script src="js/<?php echo $template; ?>.js" crossorigin="anonymous"></script>
     <script src="js/app.js" defer></script>
     <title>Shop</title>
 </head>
@@ -35,9 +35,7 @@
             </div>
         </div>
     </header>
-    <div id="app">
-        <?php require $layout_path; ?>
-    </div>
+    <?php require $template_path; ?>
     <footer class="footer">
         <div class="container">
             <div class="footer_wrapper">
