@@ -25,4 +25,26 @@ class UserMapper
             throw new \Exception('User undefined');
         }
     }
+
+    public static function createUser(string $login, string $password, string $name): bool
+    {
+        $db = Database::connect();
+        $sql = 'SELECT name FROM users WHERE name = :name';
+        $statement = $db->prepare($sql);
+        $statement->bindParam('name', $name);
+        $statement->execute();
+        $row = $statement->fetch();
+        if ($row) {
+            echo 'user with this login is exists';
+            return false;
+        }
+        $sql = 'INSERT INTO users(login, password, name) VALUES (:login, :password, :name);';
+        $statement = $db->prepare($sql);
+        $statement->bindParam('login', $login);
+        $statement->bindParam('password', $password);
+        $statement->bindParam('name', $name);
+        $statement->execute();
+        echo 'succes added new user';
+        return true;
+    }
 }

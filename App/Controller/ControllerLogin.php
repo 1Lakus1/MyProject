@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Mapper\UserMapper;
+use App\Service\signupValidate;
 use Framework\Authentication\Authentication;
 use App\Model\ModelLogin;
 use http\Client\Curl\User;
@@ -37,5 +38,23 @@ class ControllerLogin extends \Framework\Core\Controller
     {
         $this->auth->logOut();
         header("Location: /login");
+    }
+
+    public function actionSignUp()
+    {
+        if (!$this->auth->isAuth()) {
+            $this->renderer->render('layout_view', null, 'signup_view');
+            if (isset($_POST['login']) && isset($_POST['password']) && isset($_POST['name']) ) {
+                $login = $_POST['login'];
+                $password = $_POST['password'];
+                $name = $_POST['password'];
+                if(!signupValidate::validate($login, $name, $password)){
+                    return;
+                };
+                UserMapper::createUser($login, $name, $password);
+            }
+        } else {
+            header("Location: /user");
+        }
     }
 }

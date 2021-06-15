@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="/src/css/style.css">
     <link rel="stylesheet" href="/src/css/<?php echo $template; ?>.css">
     <script src="https://kit.fontawesome.com/0470f40f2a.js" crossorigin="anonymous"></script>
-    <script src="js/<?php echo $template; ?>.js" crossorigin="anonymous"></script>
-    <script src="js/app.js" defer></script>
+    <script src="/js/<?php echo $template; ?>.js" crossorigin="anonymous"></script>
+    <script src="/js/app.js" defer></script>
     <title>Shop</title>
 </head>
 <body>
