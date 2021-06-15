@@ -8,7 +8,6 @@ use PHP_CodeSniffer\Tests\Core\File\FindEndOfStatementTest;
 
 class ProductMapper
 {
-
     public static function getProductById($id)
     {
         $db = Database::connect();

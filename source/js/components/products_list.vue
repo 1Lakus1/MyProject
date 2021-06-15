@@ -1,5 +1,6 @@
-<template>
+<template >
     <div>
+        <sort @sort="sort"></sort>
         <section class="products">
             <product v-for="product in products" :key="product.id"
                      :id=product.id
@@ -7,7 +8,6 @@
                      :price=product.price
                      :name=product.name
             >
-
             </product>
         </section>
     </div>
@@ -18,7 +18,7 @@
         name: "products_list",
 
         props: {
-            sort: String
+
         },
         methods: {
             getProducts: async () => {

@@ -1,4 +1,4 @@
-<template>
+<template >
     <article class = "product">
         <a :href = "'product?id='+id">
             <div class = "product__wrapper">
