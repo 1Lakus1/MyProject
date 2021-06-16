@@ -9,7 +9,7 @@
             <input class="logForm__input" type="password" placeholder="Password" name="password">
         </form>
         <div class="admission__wrapper">
-            <a class="admission__link" href="#">Sign up</a>
+            <a class="admission__link" href="/login/signup">Sign up</a>
             <button type="submit" form="logForm">Войти</button>
         </div>
     </main>

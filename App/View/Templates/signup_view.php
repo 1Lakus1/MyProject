@@ -11,7 +11,7 @@
             <!--<input class="logForm__input" type="password" placeholder="Confirm password" name="password">-->
         </form>
         <div class="admission__wrapper">
-            <a class="admission__link" href="#">Login</a>
+            <a class="admission__link" href="/login">Login</a>
             <button type="submit" form="logForm">Войти</button>
         </div>
     </main>
