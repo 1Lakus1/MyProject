@@ -40,17 +40,41 @@ class ProductMapper
         $statement->execute();
     }
 
-    public static function getProducts(int $maxCount=NULL): array
+    // variable sort - sort price direction. 0 - default, 1 - ASC, 2 - DESC
+
+    public static function getProducts(int $maxCount = 0, int $pagging = 0, int $sort = 0): array
     {
         $db = Database::connect();
         $product_list = [];
-        if(isset($maxCount)) {
-            $sql = 'SELECT id, name, price, img FROM products ORDER BY id DESC LIMIT :maxCount';
+        if($maxCount !== 0) {
+            $pagging = $maxCount * $pagging;
+            switch($sort){
+                case 1:
+                    $sql = 'SELECT id, name, price, img FROM products ORDER BY price ASC LIMIT :pagging, :maxCount';
+                    break;
+                case 2:
+                    $sql = 'SELECT id, name, price, img FROM products ORDER BY price DESC LIMIT :pagging, :maxCount';
+                    break;
+                default:
+                    $sql = 'SELECT id, name, price, img FROM products ORDER BY id DESC LIMIT :pagging, :maxCount';
+                    break;
+            }
             $statement = $db->prepare($sql);
+            $statement->bindParam('pagging', $pagging);
             $statement->bindParam('maxCount', $maxCount);
             $statement->execute();
         } else {
-            $sql = 'SELECT id, name, price, img FROM products ORDER BY price DESC';
+            switch($sort){
+                case 1:
+                    $sql = 'SELECT id, name, price, img FROM products ORDER BY price ASC';
+                    break;
+                case 2:
+                    $sql = 'SELECT id, name, price, img FROM products ORDER BY price DESC';
+                    break;
+                default:
+                    $sql = 'SELECT id, name, price, img FROM products ORDER BY id DESC';
+                    break;
+            }
             $statement = $db->prepare($sql);
             $statement->execute();
         }
@@ -65,5 +89,13 @@ class ProductMapper
         return $product_list;
     }
 
+    public static function getProductCount(): int
+    {
+        $db = Database::connect();
+        $sql = 'SELECT count(*) AS count FROM products';
+        $statement = $db->prepare($sql);
+        $statement->execute();
+        return ($statement->fetch())['count'];
+    }
 
 }
