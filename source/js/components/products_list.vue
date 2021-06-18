@@ -1,6 +1,6 @@
-<template >
+<template>
     <div>
-        <sort @sort="sort"></sort>
+        <sort @sort="setSort"></sort>
         <section class="products">
             <product v-for="product in products" :key="product.id"
                      :id=product.id
@@ -10,6 +10,12 @@
             >
             </product>
         </section>
+        <pagging
+                :productCount=productCount
+                :productsOnPage=productsOnPage
+                @pagging = "setPagging"
+        >
+        </pagging>
     </div>
 </template>
 
@@ -17,39 +23,62 @@
     export default {
         name: "products_list",
 
-        props: {
-
-        },
         methods: {
-            getProducts: async () => {
-                let response = await fetch(`http://myproject.loc/mainapi`, {
+            getResponse: async (request) => {
+                let response = await fetch(request, {
                     method: "GET",
                     headers: {
                         'Content-Type': 'application/json'
                     },
                 });
 
-                const products = await response.json();
-                return products;
+                const response_decode = await response.json();
+                return response_decode;
             },
-            sort: function(direction){
-                if(direction === "Asc") {
-                    this.products = this.products.sort((product1, product2) => (parseFloat(product1.price) - parseFloat(product2.price)))
-                }else{
-                    this.products = this.products.sort((product1, product2) => (parseFloat(product2.price) - parseFloat(product1.price)))
+            getProducts: function () {
+                let request = `http://myproject.loc/mainapi`;
+                request = request + "?sort=" + this.sort;
+                if(this.productsOnPage !== 0){
+                    request = request + "&count=" + this.productsOnPage + "&pagging=" + this.pagging;
+                    console.log(request);
                 }
-                console.log(this.products)
+
+                this.getResponse(request).then((products) => {
+                    this.products = products;
+                });
+            },
+            getProductCount: function () {
+                this.getResponse(`http://myproject.loc/mainapi/count`).then((count_response) => {
+                   this.productCount = count_response;
+                });
+            },
+            setSort: function (direction) {
+                if(direction === 'ASC'){
+                    this.sort = 1;
+                    return this.getProducts();
+                }
+                if(direction === 'DESC'){
+                    this.sort = 2;
+                    return this.getProducts();
+                }
+            },
+            setPagging: function (pagging){
+                this.pagging = pagging -1;
+                return this.getProducts();
             }
         },
         data() {
             return {
-                products: {}
+                products: {},
+                productCount: null,
+                productsOnPage: 2,
+                sort: 0,
+                pagging: 0
             }
         },
         created() {
-            this.getProducts().then((products)=>{
-                this.products = products;
-            });
+            this.getProducts();
+            this.getProductCount();
         }
     }
 </script>

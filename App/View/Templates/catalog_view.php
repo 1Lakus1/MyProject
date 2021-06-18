@@ -6,6 +6,7 @@
         </div>
         <div class = "container">
                 <products_list></products_list>
+
         </div>
     </div>
 </main>

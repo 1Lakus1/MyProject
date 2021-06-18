@@ -57,3 +57,9 @@
   border: none;
   cursor: pointer;
 }
+
+.container__paggin{
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
